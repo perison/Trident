@@ -11,7 +11,7 @@ export default new Router({
   routes: [
     {
       path:'/',
-      name:'导航。',
+      name:'导航',
       component:Nav,
       children:[
         {

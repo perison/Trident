@@ -6,21 +6,25 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      code:-100,
+      code: -100,
+      tableData: [],
     }
+  },
+  beforeMount() {
+    this.getTableData();
   },
   methods: {
     printX () {
       console.log('perison');
     },
-    getXXX () {
+    getTableData() {
       this.$http({
           method: 'get',
           url: '/test',
         }
       ).then( response => {
-          this.code = lodash.get(response,'data.erer',10000);
-          console.log(this.code);
+          this.tableData = lodash.get(response,'data.data',[]);
+          console.log(this.tableData);
       });
     },
   },
