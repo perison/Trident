@@ -36,6 +36,6 @@ export default new Router({
           component:Upgrade,
         },
       ]
-    },
+    }
   ]
 })
