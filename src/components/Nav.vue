@@ -1,7 +1,7 @@
 <template>
   <div>
-    <el-menu :router="rout" theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="/hello" id="h">主页</el-menu-item>
+    <el-menu :router="rout" theme="dark" :default-active="activeIndex" :default-openeds="submenuIndexs" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu-item index="/hello">主页</el-menu-item>
       <el-menu-item index="/upgrade">升级检查</el-menu-item>
       <!--<el-submenu index="/home">-->
         <!--<template slot="title">各种平台</template>-->
@@ -21,14 +21,18 @@
   export default {
     data() {
       return {
-        activeIndex: '1',
-        activeIndex2: '1',
+        activeIndex: "/hello",
+        submenuIndexs: ["/hello"],
         rout:true
       };
     },
+    mounted() {
+      console.log('mounted');
+    },
     methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+      handleSelect(index, indexPath) {
+        console.log(index, indexPath);
+        console.log(this.activeIndex);
       }
     }
   }
